@@ -3,21 +3,25 @@ The code in this repository is in development and will change before release, do
 
 Contents:
 
-meow_hash_x64_aesni.h - The function code.
-test.c - A basic application running and benchmarking the hash functions.
+* meow_hash_x64_aesni.h - The function code.
+* test.c - A basic application running and benchmarking the hash functions.
 
 The following functions, with the following intended capabilities, are defined:
 
-Meow1 - 128 bit level 1 hash
-Meow2 - 64 bit level 2 hash (outputs 128 bits)
-Meow3 - 128 bit level 3 hash
-Meow4 - 512 bit level 4 hash
-MeowExpandSeed - A slightly modified version of Meow2 that can output arbitrary length byte streams. Not considered a full crypto RNG, but it should be plenty good for key expansion.
+* Meow1 - 128 bit level 1 hash
+* Meow2 - 64 bit level 2 hash (outputs 128 bits)
+* Meow3 - 128 bit level 3 hash
+* Meow4 - 512 bit level 4 hash
+* MeowExpandSeed - A slightly modified version of Meow2 that can output arbitrary length byte streams. Not considered a full crypto RNG, but it should be plenty good for key expansion.
 
 Meow1 uses an 8x128 bit inner state, and operates on blocks of 128 bytes.
+
 Meow2, 3 and 4 all use a 11x128 bit inner state, and are all built on the same permutation that ingest 32 bytes while doing 3 AES operations. This permutation is designed to make simple inner collisions impossible. More information on this design to come.
+
 Meow2 operates on blocks of 128 bytes.
+
 Meow3 operates on blocks of 512 bytes, iterating over each block twice, with token differences between the rounds.
+
 Meow4 operates on blocks of 1024 bytes, iterating over each block four times, with token differences between the rounds, and switching around the order of ingestion for each round.
 
 Meow3 and 4 use the large blocks, combined with multiple iterations, to create a system where a lot of state transformation will happen between the first and the last ingestion of any given piece of input, making self-cancelling differences hard to achieve.
