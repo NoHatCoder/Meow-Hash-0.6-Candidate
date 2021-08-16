@@ -16,7 +16,7 @@ The following functions, with the following intended capabilities, are defined:
 
 Meow1 uses an 8x128 bit inner state, and operates on blocks of 128 bytes.
 
-Meow2, 3 and 4 all use a 11x128 bit inner state, and are all built on the same permutation that ingest 32 bytes while doing 3 AES operations. This permutation is designed to make simple inner collisions impossible. More information on this design to come.
+Meow2, 3 and 4 all use a 11x128 bit inner state, and are all built on the same permutation that ingest 32 bytes while doing 3 AES operations. This permutation is designed to make simple inner collisions impossible. See [Patterncheck](Patterncheck).
 
 Meow2 operates on blocks of 128 bytes.
 
