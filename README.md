@@ -1,3 +1,6 @@
+## Tjald library
+This work has now been turned into the Tjald library, see [Tjald Hash and RNG Suite](https://github.com/NoHatCoder/Tjald-Hash-and-RNG-Suite).
+
 # Meow Hash 0.6 Candidate
 The code in this repository is in development and will change before release, do not use the code in this repository for anything but development of Meow Hash.
 
